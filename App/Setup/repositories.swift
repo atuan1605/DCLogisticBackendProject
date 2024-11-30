@@ -17,7 +17,7 @@ public func setupRepositories(app: Application) throws {
 
     app.azureStorageName = Environment.process.AZURE_STORAGE_NAME
     app.azureStorageKey = Environment.process.AZURE_STORAGE_ACCESS_KEY
-    
+
     try app.loadGoogleConfig()
     app.google.use { req in
         return DefaultGoogleCloudRepository(
@@ -38,25 +38,23 @@ public func setupRepositories(app: Application) throws {
 //            eventLoop: req.eventLoop
 //        )
 //    }
-    
+
 //    app.trackingItems.use { req in
 //        return DatabaseTrackingItemRespository(db: req.db, request: req)
 //    }
-//    
+//
 //    app.buyerTrackingItemLinkViews.use { request in
 //        return DatabaseBuyerTrackingItemLinkViewRepository(db: request.db)
 //    }
-//    
+//
 //    app.buyerTrackingItems.use { request in
 //        return DatabaseBuyerTrackingItemRepository(db: request.db, request: request)
 //    }
-    
+
     app.appFrontendURL = Environment.process.FRONTEND_URL
-    
-    app.googleCloudSpreadSheet = "1EodDepVHd6C_Dhxu61z79GTXZnLkn1JkiHibGKPlSDo"
+
     app.isLoggingToGoogleSheetEnabled = Environment.process.IS_LOGGING_TO_GOOGLE_SHEET_ENABLED == "True" ? true : false
     if (Environment.process.SENDGRID_API_KEY != nil) {
         app.sendgrid.initialize()
     }
 }
-
