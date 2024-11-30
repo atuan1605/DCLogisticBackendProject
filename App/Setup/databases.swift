@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Logistic
-//
-//  Created by Anh Tuan on 19/11/24.
-//
-
 import Fluent
 import Vapor
 import FluentKit
@@ -20,19 +13,19 @@ func databases(_ app: Application) throws {
             database: Environment.get("DATABASE_TEST_NAME") ?? "dclogistics_test"
         ), as: .psql)
     } else if let databaseURL = Environment.process.DATABASE_URL {
-        var tlsConfig: TLSConfiguration = .makeClientConfiguration()
-        tlsConfig.certificateVerification = .none
-        let nioSSLContext = try NIOSSLContext(configuration: tlsConfig)
+		var tlsConfig: TLSConfiguration = .makeClientConfiguration()
+		tlsConfig.certificateVerification = .none
+		let nioSSLContext = try NIOSSLContext(configuration: tlsConfig)
         var config = try SQLPostgresConfiguration(url: databaseURL)
-        config.coreConfiguration.tls = .require(nioSSLContext)
+		config.coreConfiguration.tls = .require(nioSSLContext)
 
         try app.databases.use(
-            .postgres(
-                configuration: config,
-                maxConnectionsPerEventLoop: 2,
-                connectionPoolTimeout: .minutes(2),
+			.postgres(
+				configuration: config,
+				maxConnectionsPerEventLoop: 2,
+				connectionPoolTimeout: .minutes(2),
                 sqlLogLevel: .error
-            ), as: .psql)
+			), as: .psql)
     } else {
         app.databases.use(.postgres(
             hostname: Environment.get("DATABASE_HOST") ?? "localhost",
@@ -43,4 +36,3 @@ func databases(_ app: Application) throws {
         ), as: .psql)
     }
 }
-

@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Logistic
-//
-//  Created by Anh Tuan on 19/11/24.
-//
-
 import Foundation
 import Vapor
 
@@ -132,6 +125,7 @@ enum AppError: String, Error {
     
     //buyerTrackingItem
     case buyerTrackingItemNotFound
+    case notEnoughPackingRequestLeft
     
     //camera
     case cameraNotFound
@@ -187,6 +181,7 @@ extension AppError: AbortError {
                 .itemIsNotEnoughInformation,
                 .cannotHoldTrackingAfterBeingBoxed,
                 .unfinishedPackBox,
+                .notEnoughPackingRequestLeft,
                 .permissionDenied,
                 .boxIsContainingReturnedItem,
                 .packBoxIsCompleted,
@@ -225,7 +220,7 @@ extension AppError: AbortError {
                 .warehouseNotFound,
                 .videoDownloadingJobNotFound,
                 .trackingItemPieceNotFound,
-                .notAllowedToDeleteThisPiece,
+                .notAllowedToDeleteThisPiece,   
                 .brokenProductDescriptionMustNotBeEmpty,
                 .trackingItemIsInReturnRequest,
                 .trackingHasManyCustomers,
@@ -252,4 +247,3 @@ extension AppError: AbortError {
         }
     }
 }
-

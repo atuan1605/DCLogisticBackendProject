@@ -8,15 +8,15 @@ extension String {
         return self.replacingOccurrences(of: "[^a-zA-Z0-9]", with: "", options: .regularExpression)
     }
 
-    func requireValidTrackingNumber() -> String? {
-        let trimmed = self.removingNonAlphaNumericCharacters()
+	func requireValidTrackingNumber() -> String? {
+		let trimmed = self.removingNonAlphaNumericCharacters()
 
-        guard trimmed.isValidTrackingNumber() else {
-            return trimmed
-        }
+		guard trimmed.isValidTrackingNumber() else {
+			return trimmed
+		}
 
-        return trimmed
-    }
+		return trimmed
+	}
     
     func isValidTrackingNumber() -> Bool {
         let regex = try! NSRegularExpression(pattern: trackingNumberRegex)
@@ -106,4 +106,3 @@ extension NSRegularExpression {
         return firstMatch(in: string, options: [], range: range) != nil
     }
 }
-

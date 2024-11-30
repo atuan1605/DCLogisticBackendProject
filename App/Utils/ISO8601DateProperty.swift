@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Logistic
-//
-//  Created by Anh Tuan on 19/11/24.
-//
-
 import Foundation
 import SwiftDate
 
@@ -107,4 +100,3 @@ public struct OptionalISO8601Date: Codable {
         try container.encode(self.value?.toISODate())
     }
 }
-

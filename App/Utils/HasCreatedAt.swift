@@ -1,8 +1,8 @@
 //
 //  File.swift
-//  Logistic
+//  
 //
-//  Created by Anh Tuan on 19/11/24.
+//  Created by Phan Anh Tran on 28/10/2022.
 //
 
 import Foundation
@@ -29,4 +29,3 @@ extension Array where Element: HasCreatedAt {
         return allWith
     }
 }
-

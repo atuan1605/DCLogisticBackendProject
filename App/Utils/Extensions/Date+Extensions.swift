@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Logistic
-//
-//  Created by Anh Tuan on 19/11/24.
-//
-
 import Foundation
 
 extension Date {
@@ -27,7 +20,7 @@ extension Date {
         if let timeZone = timeZone {
             formatter.timeZone = timeZone
         }
-        return formatter.string(from: self) // 2024-11-19T03:04:05
+        return formatter.string(from: self) // 2022-10-02T03:04:05
     }
 
     func toISODate(_ timeZone: TimeZone? = nil) -> String {
@@ -36,6 +29,6 @@ extension Date {
         if let timeZone = timeZone {
             formatter.timeZone = timeZone
         }
-        return formatter.string(from: self) // 2024-11-19
+        return formatter.string(from: self) // 2022-10-02
     }
 }

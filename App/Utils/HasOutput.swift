@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Logistic
-//
-//  Created by Anh Tuan on 19/11/24.
-//
-
 import Foundation
 import Fluent
 import Vapor
@@ -102,4 +95,3 @@ extension Page where T: HasOutput {
         )
     }
 }
-
